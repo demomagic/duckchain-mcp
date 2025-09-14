@@ -112,20 +112,6 @@ DuckChain supports all BlockScout-compatible networks including:
    uv run playground
    ```
 
-## Configuration
-
-Configure DuckChain by setting these parameters in your MCP client:
-
-```json
-{
-  "timeout": 30
-}
-```
-
-### Configuration Options
-
-- **`timeout`**: Request timeout in seconds (default: 30)
-
 ### No Authentication Required
 
 - **Free and public access** - Most BlockScout instances are free and public

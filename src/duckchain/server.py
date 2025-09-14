@@ -12,29 +12,16 @@ from pydantic import BaseModel, Field
 from smithery.decorators import smithery
 
 
-class ConfigSchema(BaseModel):
-    """Configuration schema for DuckChain MCP server."""
-    # server_url: str = Field(
-    #     default="scan.duckchain.io",
-    #     description="BlockScout server URL (e.g., 'scan.duckchain.io')"
-    # )
-    timeout: int = Field(
-        default=30,
-        description="Request timeout in seconds"
-    )
-    
-    class Config:
-        """Pydantic configuration."""
-        extra = "ignore"
+# Configuration is no longer needed for Smithery deployment
 
 
 class DuckChainAPI:
     """BlockScout API client for DuckChain."""
     
-    def __init__(self, timeout: int = 30):
+    def __init__(self):
         self.base_url = f"https://scan.duckchain.io/api/v2"
-        self.timeout = timeout
-        self.client = httpx.AsyncClient(timeout=timeout)
+        self.timeout = 30
+        self.client = httpx.AsyncClient(timeout=self.timeout)
     
     async def _make_request(self, endpoint: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
         """Make a request to the BlockScout API."""
@@ -288,13 +275,10 @@ def create_server():
     api_client = None
     
     async def get_api_client(ctx: Context) -> DuckChainAPI:
-        """Get or create API client with session config."""
+        """Get or create API client."""
         nonlocal api_client
         if api_client is None:
-            config = ctx.session_config
-            api_client = DuckChainAPI(
-                timeout=config.timeout
-            )
+            api_client = DuckChainAPI()
         return api_client
     
     # Search tools
@@ -1020,8 +1004,8 @@ def create_server():
         - get_transactions_chart: Get transaction chart data
         - get_market_chart: Get market chart data
         
-        Configuration:
-        - timeout: Request timeout in seconds (default: 30)
+         Configuration:
+         - No configuration required - uses default settings
         """
     
     @server.resource("duckchain://supported-chains")
