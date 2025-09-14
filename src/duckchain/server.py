@@ -943,105 +943,105 @@ def create_server():
             return f"Error getting smart contract details: {str(e)}"
     
     # # Resources
-    # @server.resource("duckchain://api-docs")
-    # def api_documentation() -> str:
-    #     """BlockScout API v2 documentation and available endpoints."""
-    #     return """
-    #     DuckChain MCP Server - BlockScout API v2 Integration
+    @server.resource("duckchain://api-docs")
+    def api_documentation() -> str:
+        """BlockScout API v2 documentation and available endpoints."""
+        return """
+        DuckChain MCP Server - BlockScout API v2 Integration
         
-    #     Available Tools:
+        Available Tools:
         
-    #     Search:
-    #     - search_blockchain: Search for addresses, tokens, blocks, or transactions
-    #     - check_search_redirect: Check if search should redirect to specific page
+        Search:
+        - search_blockchain: Search for addresses, tokens, blocks, or transactions
+        - check_search_redirect: Check if search should redirect to specific page
         
-    #     Transactions:
-    #     - get_transactions: Get transactions with filtering options
-    #     - get_transaction_details: Get detailed transaction information
-    #     - get_transaction_token_transfers: Get token transfers for a transaction
-    #     - get_transaction_internal_transactions: Get internal transactions for a transaction
-    #     - get_transaction_logs: Get logs for a transaction
-    #     - get_transaction_raw_trace: Get raw trace for a transaction
-    #     - get_transaction_state_changes: Get state changes for a transaction
-    #     - get_transaction_summary: Get summary for a transaction
+        Transactions:
+        - get_transactions: Get transactions with filtering options
+        - get_transaction_details: Get detailed transaction information
+        - get_transaction_token_transfers: Get token transfers for a transaction
+        - get_transaction_internal_transactions: Get internal transactions for a transaction
+        - get_transaction_logs: Get logs for a transaction
+        - get_transaction_raw_trace: Get raw trace for a transaction
+        - get_transaction_state_changes: Get state changes for a transaction
+        - get_transaction_summary: Get summary for a transaction
         
-    #     Blocks:
-    #     - get_blocks: Get blocks with optional type filtering
-    #     - get_block_details: Get specific block details by number or hash
-    #     - get_block_transactions: Get transactions for a specific block
-    #     - get_block_withdrawals: Get withdrawals for a specific block
+        Blocks:
+        - get_blocks: Get blocks with optional type filtering
+        - get_block_details: Get specific block details by number or hash
+        - get_block_transactions: Get transactions for a specific block
+        - get_block_withdrawals: Get withdrawals for a specific block
         
-    #     Address Operations:
-    #     - get_addresses_list: Get addresses list
-    #     - get_address_details: Get address details by hash
-    #     - get_address_counters: Get address counters
-    #     - get_address_transactions: Get transactions for a specific address
-    #     - get_address_token_transfers: Get token transfers for a specific address
-    #     - get_address_internal_transactions: Get internal transactions for a specific address
-    #     - get_address_logs: Get logs for a specific address
-    #     - get_address_blocks_validated: Get blocks validated by a specific address
-    #     - get_address_token_balances: Get token balances for a specific address
-    #     - get_address_tokens: Get tokens for a specific address
-    #     - get_address_coin_balance_history: Get coin balance history for a specific address
-    #     - get_address_coin_balance_history_by_day: Get coin balance history by day for a specific address
-    #     - get_address_withdrawals: Get withdrawals for a specific address
-    #     - get_address_nft: Get NFT for a specific address
-    #     - get_address_nft_collections: Get NFT collections for a specific address
+        Address Operations:
+        - get_addresses_list: Get addresses list
+        - get_address_details: Get address details by hash
+        - get_address_counters: Get address counters
+        - get_address_transactions: Get transactions for a specific address
+        - get_address_token_transfers: Get token transfers for a specific address
+        - get_address_internal_transactions: Get internal transactions for a specific address
+        - get_address_logs: Get logs for a specific address
+        - get_address_blocks_validated: Get blocks validated by a specific address
+        - get_address_token_balances: Get token balances for a specific address
+        - get_address_tokens: Get tokens for a specific address
+        - get_address_coin_balance_history: Get coin balance history for a specific address
+        - get_address_coin_balance_history_by_day: Get coin balance history by day for a specific address
+        - get_address_withdrawals: Get withdrawals for a specific address
+        - get_address_nft: Get NFT for a specific address
+        - get_address_nft_collections: Get NFT collections for a specific address
         
-    #     Token Operations:
-    #     - get_token_transfers: Get all token transfers
-    #     - get_tokens_list: Get tokens list
-    #     - get_token_details: Get token details by address hash
-    #     - get_token_transfers_by_token: Get transfers for a specific token
-    #     - get_token_holders: Get holders for a specific token
-    #     - get_token_counters: Get counters for a specific token
-    #     - get_token_instances: Get instances for a specific token
-    #     - get_token_instance_details: Get specific token instance details
-    #     - get_token_instance_transfers: Get transfers for a specific token instance
-    #     - get_token_instance_holders: Get holders for a specific token instance
-    #     - get_token_instance_transfers_count: Get transfers count for a specific token instance
-    #     - refetch_token_instance_metadata_tool: Refetch metadata for a specific token instance
+        Token Operations:
+        - get_token_transfers: Get all token transfers
+        - get_tokens_list: Get tokens list
+        - get_token_details: Get token details by address hash
+        - get_token_transfers_by_token: Get transfers for a specific token
+        - get_token_holders: Get holders for a specific token
+        - get_token_counters: Get counters for a specific token
+        - get_token_instances: Get instances for a specific token
+        - get_token_instance_details: Get specific token instance details
+        - get_token_instance_transfers: Get transfers for a specific token instance
+        - get_token_instance_holders: Get holders for a specific token instance
+        - get_token_instance_transfers_count: Get transfers count for a specific token instance
+        - refetch_token_instance_metadata_tool: Refetch metadata for a specific token instance
         
-    #     Smart Contract Operations:
-    #     - get_smart_contracts_list: Get smart contracts list
-    #     - get_smart_contracts_counters: Get smart contracts counters
-    #     - get_smart_contract_details: Get smart contract details by address hash
+        Smart Contract Operations:
+        - get_smart_contracts_list: Get smart contracts list
+        - get_smart_contracts_counters: Get smart contracts counters
+        - get_smart_contract_details: Get smart contract details by address hash
         
-    #     Internal Operations:
-    #     - get_internal_transactions: Get internal transactions
+        Internal Operations:
+        - get_internal_transactions: Get internal transactions
         
-    #     Main Page Data:
-    #     - get_main_page_transactions: Get transactions for main page
-    #     - get_main_page_blocks: Get blocks for main page
-    #     - get_indexing_status: Get blockchain indexing status
+        Main Page Data:
+        - get_main_page_transactions: Get transactions for main page
+        - get_main_page_blocks: Get blocks for main page
+        - get_indexing_status: Get blockchain indexing status
         
-    #     Statistics:
-    #     - get_blockchain_stats: Get blockchain statistics
-    #     - get_transactions_chart: Get transaction chart data
-    #     - get_market_chart: Get market chart data
+        Statistics:
+        - get_blockchain_stats: Get blockchain statistics
+        - get_transactions_chart: Get transaction chart data
+        - get_market_chart: Get market chart data
         
-    #     Configuration:
-    #     - timeout: Request timeout in seconds (default: 30)
-    #     """
+        Configuration:
+        - timeout: Request timeout in seconds (default: 30)
+        """
     
-    # @server.resource("duckchain://supported-chains")
-    # def supported_chains() -> str:
-    #     """List of supported blockchain networks."""
-    #     return """
-    #     Supported BlockScout Networks:
+    @server.resource("duckchain://supported-chains")
+    def supported_chains() -> str:
+        """List of supported blockchain networks."""
+        return """
+        Supported BlockScout Networks:
         
-    #     - Ethereum Mainnet (blockscout.com/eth/mainnet)
-    #     - Ethereum Goerli (blockscout.com/eth/goerli)
-    #     - Polygon (blockscout.com/matic/mainnet)
-    #     - BSC (blockscout.com/bsc/mainnet)
-    #     - Arbitrum (blockscout.com/arbitrum/mainnet)
-    #     - Optimism (blockscout.com/optimism/mainnet)
-    #     - Avalanche (blockscout.com/avax/mainnet)
-    #     - Fantom (blockscout.com/ftm/mainnet)
-    #     - Gnosis Chain (blockscout.com/gnosis/mainnet)
-    #     - POA Core (blockscout.com/poa/core) - Default
+        - Ethereum Mainnet (blockscout.com/eth/mainnet)
+        - Ethereum Goerli (blockscout.com/eth/goerli)
+        - Polygon (blockscout.com/matic/mainnet)
+        - BSC (blockscout.com/bsc/mainnet)
+        - Arbitrum (blockscout.com/arbitrum/mainnet)
+        - Optimism (blockscout.com/optimism/mainnet)
+        - Avalanche (blockscout.com/avax/mainnet)
+        - Fantom (blockscout.com/ftm/mainnet)
+        - Gnosis Chain (blockscout.com/gnosis/mainnet)
+        - POA Core (blockscout.com/poa/core) - Default
         
-    #     """
+        """
     
     # Prompts
     @server.prompt()
