@@ -22,6 +22,10 @@ class ConfigSchema(BaseModel):
         default=30,
         description="Request timeout in seconds"
     )
+    
+    class Config:
+        """Pydantic configuration."""
+        extra = "ignore"
 
 
 class DuckChainAPI:
@@ -274,7 +278,7 @@ class DuckChainAPI:
         await self.client.aclose()
 
 
-@smithery.server(config_schema=ConfigSchema)
+@smithery.server()
 def create_server():
     """Create and configure the DuckChain MCP server."""
     
