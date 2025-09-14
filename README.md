@@ -72,14 +72,12 @@ Configure DuckChain by setting these parameters in your MCP client:
 
 ```json
 {
-  "server_url": "blockscout.com/poa/core",
   "timeout": 30
 }
 ```
 
 ### Configuration Options
 
-- **`server_url`**: BlockScout server URL (default: `blockscout.com/poa/core`)
 - **`timeout`**: Request timeout in seconds (default: 30)
 
 ### No Authentication Required
