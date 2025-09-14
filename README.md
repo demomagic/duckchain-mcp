@@ -174,17 +174,9 @@ The server code is located in `src/duckchain/server.py`. The implementation foll
 
 Ready to deploy? Push your code to GitHub and deploy to Smithery:
 
-1. Create a new repository at [github.com/new](https://github.com/new)
+1. Clone repository at [duckchain-mcp](https://github.com/demomagic/duckchain-mcp)
 
-2. Initialize git and push to GitHub:
-   ```bash
-   git add .
-   git commit -m "DuckChain MCP Server 🦆"
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   git push -u origin main
-   ```
-
-3. Deploy your server to Smithery at [smithery.ai/new](https://smithery.ai/new)
+2. Deploy your server to Smithery at [smithery.ai/new](https://smithery.ai/new)
 
 ## License
 
