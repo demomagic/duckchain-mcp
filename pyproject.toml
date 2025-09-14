@@ -1,0 +1,31 @@
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[project]
+name = "duckchain"
+version = "0.1.0"
+description = "DuckChain MCP server for blockchain data access via BlockScout API"
+authors = [
+    {name = "DuckChain Team", email = "team@duckchain.com"}
+]
+
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.13.1",
+    "smithery>=0.1.24",
+    "httpx>=0.25.0",
+    "pydantic>=2.0.0",
+]
+
+[project.scripts]
+# Run the MCP server in development mode
+dev = "smithery.cli.dev:main"
+# Run server with interactive testing playground
+playground = "smithery.cli.playground:main"
+
+[tool.smithery]
+# Function that returns a patched FastMCP server
+server = "duckchain.server:create_server"
+
+
